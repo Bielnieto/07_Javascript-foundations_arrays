@@ -1,4 +1,4 @@
-// const MONKEYS = ["🐒", "🦍", "🦧"];
+const MONKEYS = ["🐒", "🦍", "🦧"];
 
 /**
  * Given 'MONKEYS' array, define function 'feedMonkeys' to return an array where each monkey has one fruit
@@ -15,3 +15,7 @@
  * @param {string} fruit - The type of fruit to feed the monkeys.
  * @returns {string[]} An array of strings where each string represents a monkey being fed with the specified fruit.
  */
+export default function feedMonkeys(monkeysList, fruit) {
+  if (!fruit) return [];
+  return monkeysList.map(monkey => `${monkey} ${fruit}`);
+}
