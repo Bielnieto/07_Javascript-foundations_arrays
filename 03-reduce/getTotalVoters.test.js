@@ -1,3 +1,6 @@
+import {describe, it, expect} from 'vitest';
+import getTotalVoters from './getTotalVoters';
+
 const VOTERS = [
   { name: "Bob", age: 30, hasVoted: true },
   { name: "Jake", age: 32, hasVoted: true },
@@ -36,15 +39,75 @@ const EMPTY_VOTERS = [];
 const SINGLE_NON_VOTER = [{ name: "Kate", age: 25, hasVoted: false }];
 
 describe("getTotalVoters", () => {
-  it.todo("should return the correct number of voters");
+    it("should return the correct number of voters", () => {
+      // Arrange
+      const voters = VOTERS;
+  
+      // Act
+      const result = getTotalVoters(voters);
+  
+      // Assert
+      expect(result).toBe(7);
 
-  it.todo("should return 0 when no one has voted");
+    });
+  
+    it("should return 0 when no one has voted", () => {
+      // Arrange
+      const voters = NO_VOTERS;
+  
+      // Act
+      const result = getTotalVoters(voters);
+  
+      // Assert
+      expect(result).toBe(0);
 
-  it.todo("should return the correct number when all have voted");
+    });
+  
+    it("should return the correct number when all have voted", () => {
+      // Arrange
+      const voters = ALL_VOTERS;
+  
+      // Act
+      const result = getTotalVoters(voters);
+  
+      // Assert
+      expect(result).toBe(7);
 
-  it.todo("should handle an empty array");
+    });
+  
+    it("should handle an empty array", () => {
+      // Arrange
+      const voters = EMPTY_VOTERS;
+  
+      // Act
+      const result = getTotalVoters(voters);
+  
+      // Assert
+      expect(result).toBe(0);
 
-  it.todo("should handle an array with one voter who has voted");
+    });
+  
+    it("should handle an array with one voter who has voted", () => {
+      // Arrange
+      const voters = [{ name: "Biel", age: 19, hasVoted: true }];
+  
+      // Act
+      const result = getTotalVoters(voters);
+  
+      // Assert
+      expect(result).toBe(1);
 
-  it.todo("should handle an array with one voter who has not voted");
-});
+    });
+  
+    it("should handle an array with one voter who has not voted", () => {
+      // Arrange
+      const voters = SINGLE_NON_VOTER;
+  
+      // Act
+      const result = getTotalVoters(voters);
+  
+      // Assert
+      expect(result).toBe(0);
+
+    });
+  });
