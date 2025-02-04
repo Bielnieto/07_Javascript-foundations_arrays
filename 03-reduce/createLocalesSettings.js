@@ -20,3 +20,10 @@
  * @property {number} id - The index of the locale in the localesList array.
  * @property {boolean} enabled - A boolean indicating if the locale is enabled (true for the first locale, false for others).
  */
+
+export default function createLocalesSettings(localesList) {
+    return localesList.reduce((settings, locale, index) => {
+      settings[locale] = {id: index, enabled: index === 0};
+      return settings;
+    }, {});
+  }
